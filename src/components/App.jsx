@@ -17,16 +17,17 @@ export class App extends Component {
   }
 
   formSubmit  = ({name, number}) => {
+    const { contacts } = this.state;
     const normalizedFind = name.toLowerCase();
 
-    const findName = this.state.contacts.find(contact => 
+    const findName = contacts.find(contact => 
       contact.name.toLowerCase() === normalizedFind
     );
     if (findName) {
       return alert(`${name} is already in contacts.`);
     };
 
-    const findNumber = this.state.contacts.find(contact => 
+    const findNumber = contacts.find(contact => 
       contact.number === number
     );
     if (findNumber) {
